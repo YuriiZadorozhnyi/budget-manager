@@ -11,6 +11,10 @@ const routes: Routes = [
       {
         path: 'tasks-list',
         loadChildren: 'app/features/main/features/tasks-list/tasks-list.module#TasksListModule'
+      },
+      {
+        path: 'configuration',
+        loadChildren: 'app/features/main/features/configuration/configuration.module#ConfigurationModule'
       }
     ]
   },

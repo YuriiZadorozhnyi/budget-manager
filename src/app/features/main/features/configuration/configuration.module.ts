@@ -4,11 +4,12 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
 import { CustomAngularMaterialModule } from '@core/angular-material/angular-material.module';
-import { SharedModalsModule } from '@share/modals/shared-modals.module';
 
-import { MainRoutingModule } from './main-routing.module';
+import { ConfigurationRoutingModule } from './configuration-routing.module';
 
-import { MainComponent } from './containers/main.component';
+import { ConfigurationComponent } from './containers/confuguration.component';
+
+import { PipesModule } from '@share/pipes/pipes.module';
 
 @NgModule({
   imports: [
@@ -16,11 +17,11 @@ import { MainComponent } from './containers/main.component';
     ReactiveFormsModule,
     HttpClientModule,
     CustomAngularMaterialModule,
-    MainRoutingModule,
-    SharedModalsModule
+    ConfigurationRoutingModule,
+    PipesModule
   ],
   declarations: [
-    MainComponent
+    ConfigurationComponent
   ]
 })
-export class MainModule { }
+export class ConfigurationModule { }
