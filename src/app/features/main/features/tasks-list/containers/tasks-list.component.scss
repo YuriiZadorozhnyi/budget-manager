@@ -1,0 +1,108 @@
+.container {
+  width: 90%;
+  height: auto;
+  margin: 15px auto;
+  .task-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: palegoldenrod;
+    margin: 15px 0;
+    border: 2px solid navy;
+    border-radius: 16px;
+    overflow: hidden;
+    .title {
+      display: flex;
+      justify-content: center;
+      background-color: darkcyan;
+      h3 {
+        margin: 5px auto;
+        font-family: 'Days One', sans-serif;
+      }
+    }
+    .info {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .created {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        background-color: salmon;
+        min-width: 10%;
+        p {
+          margin: 7px auto;
+          font-family: 'Gugi', cursive;
+        }
+      }
+      .author {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        background-color: rgb(200, 233, 139);
+        min-width: 15%;
+        h4 {
+          margin: 7px;
+          font-family: 'Gugi', cursive;
+          text-align: center;
+        }
+      }
+      .description {
+        font-family: 'Gugi', cursive;
+        text-align: center;
+      }
+      .type {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        background-color: rgb(102, 245, 238);
+        min-width: 10%;
+        p {
+          margin: 7px;
+          font-family: 'Gugi', cursive;
+          text-align: center;
+          font-weight: 600;
+        }
+      }
+      .action {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-content: center;
+        background-color: rgb(243, 159, 104);
+        min-width: 5%;
+        button {
+          margin: 0 auto;
+          i {
+            color: red;
+            font-size: 2em;
+            transform: translateX(-26%)
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 930px) {
+  .container {
+    .task-container {
+      .info {
+        flex-direction: column;
+        .created {
+          flex-direction: row;
+        }
+        .type {
+          flex-direction: row;
+          justify-content: space-around;
+          p {
+            width: 33.33%;
+          }
+        }
+      }
+    }
+  }
+}

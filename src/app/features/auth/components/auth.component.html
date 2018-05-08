@@ -1,0 +1,41 @@
+<div class="container">
+
+  <form class="form" [formGroup]="authForm" novalidate>
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Name"
+        formControlName="name">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password"
+        matInput
+        placeholder="Password"
+        formControlName="password">
+    </mat-form-field>
+    <mat-form-field>
+      <input type="password"
+        matInput
+        placeholder="Admin Code (Only For Admin Registration)"
+        formControlName="adminCode">
+    </mat-form-field>
+  </form>
+
+  <div class="button-row">
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="signUp()"
+      [disabled]="authForm.invalid">
+      SignUp
+    </button>
+    <button
+      mat-raised-button
+      color="primary"
+      (click)="signIn()"
+      [disabled]="authForm.invalid">
+      SignIn
+    </button>
+  </div>
+
+</div>
