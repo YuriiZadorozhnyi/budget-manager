@@ -6,9 +6,9 @@ export class TaskModel {
   author: string;
   title: string;
   description: string;
-  type: string;
+  category: string;
   priority: string;
-  estimation: number;
+  price: number;
   workflow: TaskWorkflowModel[];
 
   constructor(values: Data = {}) {
@@ -16,9 +16,9 @@ export class TaskModel {
     this.author = values.author;
     this.title = values.title;
     this.description = values.description;
-    this.type = values.type;
+    this.category = values.category;
     this.priority = values.priority;
-    this.estimation = values.estimation;
+    this.price = values.price;
     this.workflow = [];
   }
 }

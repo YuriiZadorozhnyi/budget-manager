@@ -1,0 +1,31 @@
+<div class="container">
+
+  <form [formGroup]="newExpenseForm" novalidate autocomplete="off">
+
+    <div class="sub-container">
+      <mat-form-field>
+        <input matInput placeholder="Enter Expense Name ..." formControlName="title">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <input matInput placeholder="Description" formControlName="description">
+      </mat-form-field>
+    
+      <mat-form-field>
+        <mat-select placeholder="Expense category" formControlName="category">
+          <mat-option *ngFor="let expenseCategory of expenseCategories" [value]="expenseCategory">
+            {{ expenseCategory }}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+        <input matInput placeholder="Сost" formControlName="price">
+      </mat-form-field>
+    
+      <button mat-raised-button color="accent" (click)="addExpense()">Add Expense</button>
+    </div>
+
+  </form>
+
+</div>

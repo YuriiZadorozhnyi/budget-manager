@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TaskModel } from '@core/models/task.model';
+import { ExpensesService } from './../services/expenses.service';
 
 @Component({
   selector: 'app-tasks-list',
@@ -10,42 +11,22 @@ import { TaskModel } from '@core/models/task.model';
 export class TasksListComponent implements OnInit {
   tasksList: TaskModel[] = [];
 
-  constructor() { }
+  constructor(private expensesService: ExpensesService) { }
 
   ngOnInit() {
-    this.generateTask();
+    this.getExpensesList();
   }
 
-  generateTask() {
-    const task = {
-      id: (new Date()).getTime(),
-      author: 'Yurii Zadorozhnyi',
-      title: 'Learn Angular',
-      description: `Service workers augment the traditional
-                     web deployment model and empower applications
-                     to deliver a user experience with the reliability
-                     and performance on par with natively-installed code.`,
-      type: 'learning',
-      priority: 'height',
-      estimation: '12h'
-    };
-    this.tasksList.push(new TaskModel(task));
-    task.id = ++task.id;
-    this.tasksList.push(new TaskModel(task));
-    task.id = ++task.id;
-    this.tasksList.push(new TaskModel(task));
-    task.id = ++task.id;
-    this.tasksList.push(new TaskModel(task));
-    task.id = ++task.id;
-    this.tasksList.push(new TaskModel(task));
-    task.id = ++task.id;
-    this.tasksList.push(new TaskModel(task));
+  getExpensesList() {
+    this.expensesService.getListOfExpenses().subscribe((res: TaskModel[]) => {
+      this.tasksList = res;
+    });
   }
 
-  removeTask(taskId) {
-    this.tasksList = this.tasksList.filter(el => el.id !== taskId);
-    console.log({taskId});
-    console.log(this.tasksList);
+  removeTask(id) {
+    this.expensesService.removeExpense(id).subscribe(() => {
+      this.getExpensesList();
+    });
   }
 
 }

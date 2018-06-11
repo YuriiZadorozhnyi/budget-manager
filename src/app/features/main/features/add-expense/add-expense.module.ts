@@ -5,10 +5,10 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CustomAngularMaterialModule } from '@core/angular-material/angular-material.module';
 
-import { TasksListRoutingModule } from './tasks-list-routing.module';
+import { AddExpenseRoutingModule } from './add-expense-routing.module';
 
-import { TasksListComponent } from './containers/tasks-list.component';
-import { ExpensesService } from './services/expenses.service';
+import { AddExpenseComponent } from './containers/add-expense.component';
+import { AddExpenseService } from './services/add-expense.service';
 
 import { PipesModule } from '@share/pipes/pipes.module';
 
@@ -18,14 +18,14 @@ import { PipesModule } from '@share/pipes/pipes.module';
     ReactiveFormsModule,
     HttpClientModule,
     CustomAngularMaterialModule,
-    TasksListRoutingModule,
+    AddExpenseRoutingModule,
     PipesModule
   ],
   declarations: [
-    TasksListComponent
+    AddExpenseComponent
   ],
   providers: [
-    ExpensesService
+    AddExpenseService
   ]
 })
-export class TasksListModule { }
+export class AddExpenseModule { }

@@ -9,6 +9,10 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
+        path: 'add-new-expense',
+        loadChildren: 'app/features/main/features/add-expense/add-expense.module#AddExpenseModule'
+      },
+      {
         path: 'tasks-list',
         loadChildren: 'app/features/main/features/tasks-list/tasks-list.module#TasksListModule'
       },
