@@ -13,7 +13,7 @@ export class AuthService {
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json');
 
-    return this.http.post(`${this.apiUrl}sign-in`, data, { headers });
+    return this.http.post(`${this.apiUrl}sign-in`, data, { headers, observe: 'response' });
   }
 
   signUp(data) {

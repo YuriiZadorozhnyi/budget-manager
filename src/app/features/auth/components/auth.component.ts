@@ -37,7 +37,9 @@ export class AuthComponent implements OnInit {
   signIn() {
     if (this.authForm.valid) {
       this.authService.signIn(this.authForm.value).subscribe((res: any) => {
-        if (res.authenticated) {
+        console.log(res);
+        console.log(res.headers.get('Access-Control-Allow-Headers'));
+        if (res.body.authenticated) {
           this.router.navigate(['./main']);
         } else {
           this.snackBar.open('Wrong User Name Or Password, Please Enter Valid Data.', ' ', {
