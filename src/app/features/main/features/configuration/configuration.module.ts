@@ -11,6 +11,8 @@ import { ConfigurationComponent } from './containers/confuguration.component';
 
 import { PipesModule } from '@share/pipes/pipes.module';
 
+import { ConfigurationService } from './services/configuration.service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -22,6 +24,9 @@ import { PipesModule } from '@share/pipes/pipes.module';
   ],
   declarations: [
     ConfigurationComponent
+  ],
+  providers: [
+    ConfigurationService
   ]
 })
 export class ConfigurationModule { }

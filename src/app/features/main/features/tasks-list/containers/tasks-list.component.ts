@@ -18,7 +18,7 @@ export class TasksListComponent implements OnInit {
   }
 
   getExpensesList() {
-    this.expensesService.getListOfExpenses().subscribe((res: TaskModel[]) => {
+    this.expensesService.getTransactions().subscribe((res: TaskModel[]) => {
       this.tasksList = res;
     });
   }

@@ -13,7 +13,7 @@ constructor(private http: HttpClient) { }
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json');
 
-    return this.http.post(`${this.apiUrl}add-expense`, data, { headers });
+    return this.http.put(`${this.apiUrl}transaction`, data, { headers });
   }
 
 }

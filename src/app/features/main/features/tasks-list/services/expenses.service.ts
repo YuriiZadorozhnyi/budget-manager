@@ -8,12 +8,12 @@ export class ExpensesService {
 
 constructor(private http: HttpClient) { }
 
-  getListOfExpenses() {
+  getTransactions(data = {}) {
     const headers = new HttpHeaders()
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json');
 
-    return this.http.post(`${this.apiUrl}expenses`, {}, { headers });
+    return this.http.post(`${this.apiUrl}transaction`, data, { headers });
   }
 
   removeExpense(id) {
@@ -21,7 +21,7 @@ constructor(private http: HttpClient) { }
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json');
 
-    return this.http.delete(`${this.apiUrl}expenses/${id}`, { headers });
+    return this.http.delete(`${this.apiUrl}transaction/${id}`, { headers });
   }
 
 }

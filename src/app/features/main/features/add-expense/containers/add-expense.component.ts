@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { TaskModel } from '@core/models/task.model';
 
@@ -13,10 +14,13 @@ import { AddExpenseService } from './../services/add-expense.service';
 export class AddExpenseComponent implements OnInit {
   newExpenseForm: FormGroup;
   tasksList: TaskModel[] = [];
+  transactionsType = ['expense', 'income'];
   expenseCategories = ['Food', 'Utilities', 'Jewelry', 'Transport', 'Communication'];
+  incomeCategories = ['Salary', 'Gift', 'Social Help', 'Budget Correction', 'Other Income'];
 
   constructor(private fb: FormBuilder,
-              private addExpenseService: AddExpenseService) { }
+              private addExpenseService: AddExpenseService,
+              private router: Router) { }
 
   ngOnInit() {
     this.initForm();
@@ -38,8 +42,11 @@ export class AddExpenseComponent implements OnInit {
       id: (new Date()).getTime(),
       author: userName
     };
-    this.addExpenseService.addExpense(data).subscribe(res => {
-      // console.log(res);
+    this.addExpenseService.addExpense(data).subscribe((res: any) => {
+      console.log(res);
+      if (res || res.saved) {
+        this.router.navigate(['/main/tasks-list']);
+      }
     });
   }
 

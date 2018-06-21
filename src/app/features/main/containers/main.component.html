@@ -15,10 +15,9 @@
       [fixedInViewport]="mobileQuery.matches"
       fixedTopGap="56">
       <mat-nav-list>
-        <a mat-list-item routerLink="add-new-expense" (click)="snav.toggle()">Add New Task</a>
-        <a mat-list-item routerLink="tasks-list" (click)="snav.toggle()">Tasks List</a>
-        <a mat-list-item routerLink="tasks-list" (click)="snav.toggle()">Tasks By Type</a>
-        <a mat-list-item routerLink="tasks-list" (click)="snav.toggle()">Tasks Scheduler</a>
+        <a mat-list-item routerLink="add-new-expense" (click)="snav.toggle()">Add New Transaction</a>
+        <a mat-list-item routerLink="tasks-list" (click)="snav.toggle()">Transactions List</a>
+        <a mat-list-item routerLink="tasks-list" (click)="snav.toggle()">Transactions By Type</a>
         <a mat-list-item routerLink="configuration" (click)="snav.toggle()">App Configuration</a>
       </mat-nav-list>
     </mat-sidenav>
@@ -26,5 +25,5 @@
       <router-outlet></router-outlet>
     </mat-sidenav-content>
   </mat-sidenav-container>
-  
+
 </div>
