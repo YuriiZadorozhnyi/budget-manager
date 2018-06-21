@@ -20,15 +20,15 @@ Create Mongo DB database.
 Create folder "config" in back-end folder.
 
 Create config.json file in back-end/config folder with next structure:
-
+```
 {
   "uname": "YOUR USER NAME HERE",
   "pwd": "YOUR PASSWORD HERE"
 }
-
+```
 
 Create index.js file in back-end/config folder with next structure: 
-
+```
 var configValues = require('./config');
 
 module.exports = {
@@ -45,3 +45,4 @@ module.exports = {
   }
   
 }
+```
