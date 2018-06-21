@@ -9,8 +9,12 @@ const routes: Routes = [
     component: MainComponent,
     children: [
       {
-        path: 'tasks-list',
-        loadChildren: 'app/features/main/features/tasks-list/tasks-list.module#TasksListModule'
+        path: 'add-transaction',
+        loadChildren: 'app/features/main/features/add-transaction/add-transaction.module#AddTransactionModule'
+      },
+      {
+        path: 'transactions-list',
+        loadChildren: 'app/features/main/features/transactions-list/transactions-list.module#TransactionsListModule'
       },
       {
         path: 'configuration',

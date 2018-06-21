@@ -13,7 +13,8 @@ export class AuthService {
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json');
 
-    return this.http.post(`${this.apiUrl}sign-in`, data, { headers });
+    this.updateLocalStorage(data.name);
+    return this.http.post(`${this.apiUrl}sign-in`, data, { headers, observe: 'response' });
   }
 
   signUp(data) {
@@ -21,7 +22,12 @@ export class AuthService {
       .set('Content-Type', 'application/json')
       .set('Accept', 'application/json');
 
+    this.updateLocalStorage(data.name);
     return this.http.post(`${this.apiUrl}sign-up`, data, { headers });
+  }
+
+  updateLocalStorage(userName) {
+    localStorage.setItem('user', userName);
   }
 
 }

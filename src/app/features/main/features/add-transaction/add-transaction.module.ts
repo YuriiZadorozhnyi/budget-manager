@@ -5,13 +5,12 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { CustomAngularMaterialModule } from '@core/angular-material/angular-material.module';
 
-import { ConfigurationRoutingModule } from './configuration-routing.module';
+import { AddTransactionRoutingModule } from './add-transaction-routing.module';
 
-import { ConfigurationComponent } from './containers/confuguration.component';
+import { AddTransactionComponent } from './containers/add-transaction.component';
+import { AddTransactionService } from './services/add-transaction.service';
 
 import { PipesModule } from '@share/pipes/pipes.module';
-
-import { ConfigurationService } from './services/configuration.service';
 
 @NgModule({
   imports: [
@@ -19,14 +18,14 @@ import { ConfigurationService } from './services/configuration.service';
     ReactiveFormsModule,
     HttpClientModule,
     CustomAngularMaterialModule,
-    ConfigurationRoutingModule,
+    AddTransactionRoutingModule,
     PipesModule
   ],
   declarations: [
-    ConfigurationComponent
+    AddTransactionComponent
   ],
   providers: [
-    ConfigurationService
+    AddTransactionService
   ]
 })
-export class ConfigurationModule { }
+export class AddTransactionModule { }

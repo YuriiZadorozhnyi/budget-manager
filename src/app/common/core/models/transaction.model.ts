@@ -1,24 +1,24 @@
 import { Data } from '@angular/router';
-import { TaskWorkflowModel } from './task-workflow.model';
+import { TransactionWorkflowModel } from './transaction-workflow.model';
 
-export class TaskModel {
+export class TransactionModel {
   id: number;
   author: string;
   title: string;
   description: string;
-  type: string;
+  category: string;
   priority: string;
-  estimation: number;
-  workflow: TaskWorkflowModel[];
+  price: number;
+  workflow: TransactionWorkflowModel[];
 
   constructor(values: Data = {}) {
     this.id = values.id;
     this.author = values.author;
     this.title = values.title;
     this.description = values.description;
-    this.type = values.type;
+    this.category = values.category;
     this.priority = values.priority;
-    this.estimation = values.estimation;
+    this.price = values.price;
     this.workflow = [];
   }
 }

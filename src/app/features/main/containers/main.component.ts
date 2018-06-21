@@ -36,6 +36,7 @@ export class MainComponent implements OnDestroy {
     modalRef.afterClosed().subscribe(res => {
       if (res) {
         this.router.navigate(['/auth']);
+        localStorage.removeItem('user');
       }
     });
   }

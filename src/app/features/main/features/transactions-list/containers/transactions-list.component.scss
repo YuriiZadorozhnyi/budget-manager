@@ -42,7 +42,7 @@
         justify-content: center;
         align-content: center;
         background-color: rgb(200, 233, 139);
-        min-width: 15%;
+        min-width: 20%;
         h4 {
           margin: 7px;
           font-family: 'Gugi', cursive;
@@ -50,6 +50,7 @@
         }
       }
       .description {
+        min-width: 45%;
         font-family: 'Gugi', cursive;
         text-align: center;
       }
@@ -59,7 +60,7 @@
         justify-content: center;
         align-content: center;
         background-color: rgb(102, 245, 238);
-        min-width: 10%;
+        min-width: 20%;
         p {
           margin: 7px;
           font-family: 'Gugi', cursive;

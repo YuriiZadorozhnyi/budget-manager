@@ -1,6 +1,6 @@
 import { Data } from '@angular/router';
 
-export class TaskWorkflowModel {
+export class TransactionWorkflowModel {
   workStart: number | null;
   workEnd: number | null;
 
