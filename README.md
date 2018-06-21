@@ -46,3 +46,7 @@ module.exports = {
   
 }
 ```
+
+Install nodemon - `npm install -g nodemon`.
+
+Run `nodemon app.js`
