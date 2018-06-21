@@ -1,7 +1,7 @@
 import { Data } from '@angular/router';
-import { TaskWorkflowModel } from './task-workflow.model';
+import { TransactionWorkflowModel } from './transaction-workflow.model';
 
-export class TaskModel {
+export class TransactionModel {
   id: number;
   author: string;
   title: string;
@@ -9,7 +9,7 @@ export class TaskModel {
   category: string;
   priority: string;
   price: number;
-  workflow: TaskWorkflowModel[];
+  workflow: TransactionWorkflowModel[];
 
   constructor(values: Data = {}) {
     this.id = values.id;
