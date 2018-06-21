@@ -1,27 +1,47 @@
-# TodoApp
+# Budget Manager
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
-## Development server
+## Development server Front-End
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `npm install`.
 
-## Code scaffolding
+Run `ng start` for a dev server. Navigate to `http://localhost:4000/`.
+The app will automatically reload if you change any of the source files.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Development server Back-End
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+Run `npm install` in back-end folder.
 
-## Running unit tests
+Create account at https://mlab.com.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Create Mongo DB database. 
 
-## Running end-to-end tests
+Create folder "config" in back-end folder.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+Create config.json file in back-end/config folder with next structure:
 
-## Further help
+{
+  "uname": "YOUR USER NAME HERE",
+  "pwd": "YOUR PASSWORD HERE"
+}
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+Create index.js file in back-end/config folder with next structure: 
+
+var configValues = require('./config');
+
+module.exports = {
+  
+  getDbConnectionString: function() {
+    const { uname, pwd } = configValues;
+    // get your DB URI - go to https://mlab.com/databases/your-database
+    // find next text:
+    // "To connect using a driver via the standard MongoDB URI (what's this?):"
+    //    *** >>> your DB link HERE <<< ***
+    return `your DB link`;
+    // example:
+    // return `mongodb://${uname}:${pwd}@ds054479.mlab.com:54479/your-database`;
+  }
+  
+}
