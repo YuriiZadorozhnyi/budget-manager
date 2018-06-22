@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
-
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class AuthService {
@@ -8,12 +7,12 @@ export class AuthService {
 
   signIn(data) {
     this.updateLocalStorage(data.name);
-    return this.http.post(`sign-in`, data, { });
+    return this.http.post('sign-in', data);
   }
 
   signUp(data) {
     this.updateLocalStorage(data.name);
-    return this.http.post(`sign-up`, data, { });
+    return this.http.post('sign-up', data);
   }
 
   updateLocalStorage(userName) {

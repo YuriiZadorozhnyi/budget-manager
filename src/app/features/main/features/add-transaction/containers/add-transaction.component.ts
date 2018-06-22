@@ -43,7 +43,6 @@ export class AddTransactionComponent implements OnInit {
       author: userName
     };
     this.addTransactionService.addTransaction(data).subscribe((res: any) => {
-      console.log(res);
       if (res || res.saved) {
         this.router.navigate(['/main/transactions-list']);
       }

@@ -9,7 +9,7 @@ import { environment } from '@environments/environment';
 
 /** Pass untouched request through to the next request handler. */
 @Injectable()
-export class AuthInterceptor implements HttpInterceptor {
+export class GlobalInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     const clonedReq = req.clone({

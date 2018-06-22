@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
 
 import { CustomAngularMaterialModule } from '@core/angular-material/angular-material.module';
 
@@ -17,7 +16,6 @@ import { ConfigurationService } from './services/configuration.service';
   imports: [
     CommonModule,
     ReactiveFormsModule,
-    HttpClientModule,
     CustomAngularMaterialModule,
     ConfigurationRoutingModule,
     PipesModule

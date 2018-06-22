@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 
-import { AuthInterceptor } from './auth.interceptor';
+import { GlobalInterceptor } from './global.interceptor';
 
 @NgModule({
   imports: [
@@ -15,7 +15,7 @@ import { AuthInterceptor } from './auth.interceptor';
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
-      useClass: AuthInterceptor,
+      useClass: GlobalInterceptor,
       multi: true
     }
   ]

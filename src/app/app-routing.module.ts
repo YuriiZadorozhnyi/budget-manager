@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes, PreloadAllModules } from '@angular/router';
 
-import { MainComponent } from './features/main/containers/main.component';
-
 const routes: Routes = [
   {
     path: 'auth',
@@ -16,7 +14,7 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  imports: [ RouterModule.forRoot(routes/*, {preloadingStrategy: PreloadAllModules}*/)],
+  imports: [ RouterModule.forRoot(routes, {preloadingStrategy: PreloadAllModules})],
   exports: [ RouterModule ]
 })
 export class AppRoutingModule { }
