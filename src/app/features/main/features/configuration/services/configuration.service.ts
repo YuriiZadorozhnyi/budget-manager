@@ -1,35 +1,22 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable()
 export class ConfigurationService {
-  apiUrl = 'http://localhost:3000/api/';
 
 constructor(private http: HttpClient) { }
 
   getTransactionCathegory(data = {}) {
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json');
-
-    return this.http.post(`${this.apiUrl}transaction-category`, data, { headers });
+    return this.http.post('transaction-category', data);
   }
 
   addTransactionCathegory(data) {
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json');
-
-    return this.http.put(`${this.apiUrl}transaction-category`, data, { headers });
+    return this.http.put('transaction-category', data);
   }
 
   removeTransactionCathegory(id) {
-    const headers = new HttpHeaders()
-      .set('Content-Type', 'application/json')
-      .set('Accept', 'application/json');
-
-    return this.http.delete(`${this.apiUrl}transaction-category/${id}`, { headers });
+    return this.http.delete(`transaction-category/${id}`);
   }
 
 }

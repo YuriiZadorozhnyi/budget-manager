@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material';
 
-import * as _ from 'lodash';
-
 import { ConfirmationModalComponent } from './confirmation-modal/confirmation-modal.component';
 
 @Injectable()

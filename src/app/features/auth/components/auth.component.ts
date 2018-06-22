@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup, Validators, FormBuilder } from '@angular/forms';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { MatSnackBar } from '@angular/material';
@@ -37,9 +37,7 @@ export class AuthComponent implements OnInit {
   signIn() {
     if (this.authForm.valid) {
       this.authService.signIn(this.authForm.value).subscribe((res: any) => {
-        console.log(res);
-        console.log(res.headers.get('Access-Control-Allow-Headers'));
-        if (res.body.authenticated) {
+        if (res.authenticated) {
           this.router.navigate(['./main']);
         } else {
           this.snackBar.open('Wrong User Name Or Password, Please Enter Valid Data.', ' ', {
