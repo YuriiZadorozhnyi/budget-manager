@@ -2,14 +2,17 @@ import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { CustomAngularMaterialModule } from './angular-material/angular-material.module';
+import { InterceptorsModule } from './interceptors/interceptors.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    CustomAngularMaterialModule
+    CustomAngularMaterialModule,
+    InterceptorsModule
   ],
   exports: [
-    CustomAngularMaterialModule
+    CustomAngularMaterialModule,
+    InterceptorsModule
   ]
 })
 export class CoreModule {

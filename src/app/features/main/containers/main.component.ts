@@ -10,7 +10,6 @@ import { SharedModalProvider } from '@share/modals/shared-modal-provider.service
 })
 export class MainComponent implements OnDestroy {
   mobileQuery: MediaQueryList;
-  fillerNav = Array(50).fill(0).map((_, i) => `Nav Item ${i + 1}`);
 
   private _mobileQueryListener: () => void;
 
