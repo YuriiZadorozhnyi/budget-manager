@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 import { MatSnackBar } from '@angular/material';
 
@@ -21,7 +22,8 @@ export class ConfigurationComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private configurationService: ConfigurationService,
-              public snackBar: MatSnackBar) { }
+              public snackBar: MatSnackBar,
+              private router: Router) { }
 
   ngOnInit() {
     this.getCategories();
@@ -108,6 +110,7 @@ export class ConfigurationComponent implements OnInit {
       console.log(name);
       this.configurationService.removeUser({ name, password }).subscribe(
         res => {
+          this.router.navigate(['/auth']);
           console.log({res});
         },
         err => {
