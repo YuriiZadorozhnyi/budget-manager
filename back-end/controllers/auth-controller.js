@@ -41,15 +41,15 @@ module.exports = function (app) {
         if(user[0].password === req.body.oldPassword) {
           var userUpdate = {
             name: req.body.name,
-            password: req.body.newPassword 
+            password: req.body.password 
           };
           AuthDataModel.update({name: userUpdate.name}, userUpdate, { upsert: true })
-          .then(resp => {
-            res.status(200).json(resp);
-          })
-          .catch(err => {
-            res.status(400).json(err);
-          });
+            .then(resp => {
+              res.status(200).json(resp);
+            })
+            .catch(err => {
+              res.status(400).json(err);
+            });
         } else {
           res.status(400).json({err: 'Wrong Password !'});
         }
@@ -62,7 +62,8 @@ module.exports = function (app) {
   /**
    * Remove User
    */
-  app.delete('/api/user', function (req, res) {
+  app.post('/api/remove-user', function (req, res) {
+    console.log(req.body);
     AuthDataModel.findOneAndRemove({
         name: req.body.name,
         password: req.body.password

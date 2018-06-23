@@ -46,3 +46,18 @@
     }
   }
 }
+
+::ng-deep .custom-snack-bar {
+  background-color: #70777a;
+  color: #f44242;
+  font-weight: bold;
+  button {
+    color: #f44242;
+    font-weight: bold;
+    &::before {
+      content: "\2718";
+      font-size: 22px;
+    }
+  }
+}
+

@@ -19,4 +19,12 @@ constructor(private http: HttpClient) { }
     return this.http.delete(`transaction-category/${id}`);
   }
 
+  changeUserPassword(data) {
+    return this.http.post('user', data);
+  }
+
+  removeUser(data) {
+    return this.http.post('remove-user', data);
+  }
+
 }

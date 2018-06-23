@@ -38,7 +38,7 @@ export class AuthComponent implements OnInit {
     if (this.authForm.valid) {
       this.authService.signIn(this.authForm.value).subscribe((res: any) => {
         if (res.authenticated) {
-          this.router.navigate(['./main']);
+          this.router.navigate(['./main/transactions-list']);
         } else {
           this.snackBar.open('Wrong User Name Or Password, Please Enter Valid Data.', ' ', {
             duration: 3000,
@@ -54,7 +54,7 @@ export class AuthComponent implements OnInit {
     if (this.authForm.valid) {
       this.authService.signUp(this.authForm.value).subscribe((res: any) => {
         if (res.saved) {
-          this.router.navigate(['./main']);
+          this.router.navigate(['./main/transactions-list']);
         } else {
           this.snackBar.open('Wrong User Name Or Password, Please Enter Valid Data.', ' ', {
             duration: 3000,
