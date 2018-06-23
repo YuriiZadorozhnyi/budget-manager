@@ -55,32 +55,36 @@
 
   </div>
 
-  <div class="sub-container">
+  <form [formGroup]="changeUserPasswordForm" novalidate autocomplete="off" class="sub-container">
     <mat-form-field>
-      <input matInput placeholder="Name">
+      <input matInput placeholder="Name" formControlName="name">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="password" placeholder="Old Password">
+      <input matInput type="password" placeholder="Old Password" formControlName="oldPassword">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="password" placeholder="New Password">
-    </mat-form-field>
-
-    <button mat-raised-button color="warn">Change Password</button>
-  </div>
-
-  <div class="sub-container">
-    <mat-form-field>
-      <input matInput placeholder="Name">
+      <input matInput type="password" placeholder="New Password" formControlName="password">
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="password" placeholder="Password">
+      <input matInput type="password" placeholder="Confirm New Password" formControlName="confirmPassword">
     </mat-form-field>
 
-    <button mat-raised-button color="warn">Remove User</button>
-  </div>
+    <button mat-raised-button color="warn" (click)="changeUserPassword()" >Change Password</button>
+  </form>
+
+  <form [formGroup]="removeUserForm" novalidate autocomplete="off" class="sub-container">
+    <mat-form-field>
+      <input matInput placeholder="Name" formControlName="name">
+    </mat-form-field>
+
+    <mat-form-field>
+      <input matInput type="password" placeholder="Password" formControlName="password">
+    </mat-form-field>
+
+    <button mat-raised-button color="warn" (click)="removeUser()">Remove User</button>
+  </form>
 
 </div>
