@@ -1,6 +1,6 @@
 const bodyParser = require('body-parser');
 
-module.exports = function (app) {
+module.exports = (app) => {
 
   // custom middleware example 
   // const processController = (req, res, next) => {
@@ -33,7 +33,7 @@ module.exports = function (app) {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: true }));
   // app.use(processController);
-  app.use(function(req, res, next) {
+  app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "*");
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");

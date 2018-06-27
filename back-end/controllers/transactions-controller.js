@@ -1,21 +1,14 @@
 const TransactionDataModel = require('../models/transactionDataModel');
 const TransactionCategories = require('../models/transactionCategories');
 
-module.exports = function (app) {
+module.exports = app => {
 
   /**
    * Add transaction
    */
-  app.put('/api/transaction', function (req, res) {
-    const data = new TransactionDataModel({
-      id: req.body.id,
-      author: req.body.author,
-      title: req.body.title,
-      description: req.body.description,
-      category: req.body.category,
-      price: req.body.price
-    });
-
+  app.put('/api/transaction', (req, res) => {
+    const { body: { id, author, title, description, category, price } } = req;
+    const data = new TransactionDataModel({ id, author, title, description, category, price });
     data.save()
       .then(saved => res.status(200).json({saved: true}))
       .catch(err => res.status(400).json({error: 'Something went wrong !!!'}));
@@ -24,7 +17,7 @@ module.exports = function (app) {
   /**
    * Get transaction
    */
-  app.post('/api/transaction', function (req, res) {
+  app.post('/api/transaction', (req, res) => {
     TransactionDataModel.find(req.body, (err, todo) => {
       if (err) throw err;
       res.send(todo);
@@ -35,7 +28,7 @@ module.exports = function (app) {
   /**
    * Remove transaction
    */
-  app.delete('/api/transaction/:id', function (req, res) {
+  app.delete('/api/transaction/:id', (req, res) => {
     TransactionDataModel.findOneAndRemove({ id: req.params.id })
       .then(resp => {
         res.status(200).json(resp);
@@ -48,7 +41,7 @@ module.exports = function (app) {
   /**
    * Get transaction CATEGORIES
    */
-  app.post('/api/transaction-category', function (req, res) {
+  app.post('/api/transaction-category', (req, res) => {
     TransactionCategories.find(req.body, (err, todo) => {
       if (err) throw err;
       res.send(todo);
@@ -59,14 +52,9 @@ module.exports = function (app) {
   /**
    * Add transaction CATEGORY
    */
-  app.put('/api/transaction-category', function (req, res) {
-    const data = new TransactionCategories({
-      id: req.body.id,
-      author: req.body.author,
-      type: req.body.type,
-      name: req.body.name
-    });
-
+  app.put('/api/transaction-category', (req, res) => {
+    const { body: { id, author, type, name } } = req;
+    const data = new TransactionCategories({ id, author, type, name });
     data.save()
       .then(saved => res.status(200).json(saved))
       .catch(err => res.status(400).json({error: 'Something went wrong !!!'}));
@@ -75,7 +63,7 @@ module.exports = function (app) {
   /**
    * Remove transaction CATEGORY
    */
-  app.delete('/api/transaction-category/:id', function (req, res) {
+  app.delete('/api/transaction-category/:id', (req, res) => {
     TransactionCategories.findOneAndRemove({ id: req.params.id })
       .then(resp => {
         res.status(200).json(resp);
