@@ -1,6 +1,7 @@
 const assert = require('chai').assert;
 const expect = require('chai').expect;
 const chai = require('chai');
+
 const AuthDataModel = require('../models/authDataModel');
 
 const authService = require('../services/auth-service');
