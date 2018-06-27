@@ -27,11 +27,13 @@ export class MainComponent implements OnDestroy {
   }
 
   signOut() {
-    const title = 'Confirmation Modal';
-    const question = 'Are you sure you want to exit ?';
-    const cancelBtn = 'Cancel';
-    const okBtn = 'Exit';
-    const modalRef = this.sharedModalProvider.openConfirmationModal(title, question, cancelBtn, okBtn);
+    const modalData = {
+      title: 'Confirmation Modal',
+      question: 'Are you sure you want to exit ?',
+      cancelBtn: 'Cancel',
+      okBtn: 'Exit'
+    };
+    const modalRef = this.sharedModalProvider.openConfirmationModal(modalData);
     modalRef.afterClosed().subscribe(res => {
       if (res) {
         this.router.navigate(['/auth']);
