@@ -1,24 +1,55 @@
 <div class="container">
 
   <form class="form" [formGroup]="authForm" novalidate>
+
     <mat-form-field>
       <input
         matInput
-        placeholder="Name"
-        formControlName="name">
+        placeholder="User Name"
+        formControlName="name"
+        [errorStateMatcher]="matcher">
+      <mat-error *ngIf="authForm.get('name').hasError('minlength')">
+        Min User Name length is {{ minNameLength }} symbols
+      </mat-error>
+      <mat-error *ngIf="authForm.get('name').hasError('maxlength')">
+        Max User Name length is {{ maxNameLength }} symbols
+      </mat-error>
+      <mat-error *ngIf="authForm.get('name').hasError('required')">
+        User Name is Required
+      </mat-error>
     </mat-form-field>
+
     <mat-form-field>
       <input type="password"
         matInput
         placeholder="Password"
-        formControlName="password">
+        formControlName="password"
+        [errorStateMatcher]="matcher">
+      <mat-error *ngIf="authForm.get('password').hasError('minlength')">
+        Min Password length is {{ minPswdLength }} symbols
+      </mat-error>
+      <mat-error *ngIf="authForm.get('password').hasError('maxlength')">
+        Max Password length is {{ maxPswdLength }} symbols
+      </mat-error>
+      <mat-error *ngIf="authForm.get('password').hasError('required')">
+        Password is Required
+      </mat-error>
     </mat-form-field>
+
     <mat-form-field>
       <input type="password"
         matInput
         placeholder="Admin Code (Only For Admin Registration)"
-        formControlName="adminCode">
+        formControlName="adminCode"
+        [errorStateMatcher]="matcher">
+      <mat-error *ngIf="authForm.get('adminCode').hasError('minlength')">
+        Min Admin Code length is {{ minPswdLength }} symbols
+      </mat-error>
+      <mat-error *ngIf="authForm.get('adminCode').hasError('maxlength')">
+        Max Admin Code length is {{ maxPswdLength }} symbols
+      </mat-error>
     </mat-form-field>
+
   </form>
 
   <div class="button-row">

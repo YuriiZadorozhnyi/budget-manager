@@ -5,6 +5,7 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CoreModule } from '@core/core.module';
+import { ErrorStateMatcher, ShowOnDirtyErrorStateMatcher } from '@angular/material/core';
 import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
@@ -19,7 +20,12 @@ import { AppComponent } from './app.component';
     AppRoutingModule,
     CoreModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ErrorStateMatcher,
+      useClass: ShowOnDirtyErrorStateMatcher
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { CustomAngularMaterialModule } from '@core/angular-material/angular-material.module';
-import { InterceptorsModule } from '@core/interceptors/interceptors.module';
 
 import { AuthRoutingModule } from './auth-routing.module';
 import { AuthComponent } from './components/auth.component';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   imports: [
@@ -15,6 +15,11 @@ import { AuthComponent } from './components/auth.component';
     CustomAngularMaterialModule,
     AuthRoutingModule,
   ],
-  declarations: [AuthComponent]
+  providers: [
+    AuthService
+  ],
+  declarations: [
+    AuthComponent
+  ]
 })
 export class AuthModule { }
