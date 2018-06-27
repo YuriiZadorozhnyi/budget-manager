@@ -10,6 +10,7 @@ import { AddTransactionComponent } from './containers/add-transaction.component'
 import { AddTransactionService } from './services/add-transaction.service';
 
 import { PipesModule } from '@share/pipes/pipes.module';
+import { DirectivesModule } from '@share/directives/directives.module';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { PipesModule } from '@share/pipes/pipes.module';
     ReactiveFormsModule,
     CustomAngularMaterialModule,
     AddTransactionRoutingModule,
-    PipesModule
+    PipesModule,
+    DirectivesModule
   ],
   declarations: [
     AddTransactionComponent
