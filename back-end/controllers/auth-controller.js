@@ -1,4 +1,5 @@
 const AuthDataModel = require('../models/authDataModel');
+const authService = require('../services/auth-service');
 
 module.exports = function (app) {
 
@@ -36,26 +37,12 @@ module.exports = function (app) {
    * Update User
    */
   app.post('/api/user', function (req, res) {
-    AuthDataModel.find({ name: req.body.name })
-      .then(user => {
-        if(user[0].password === req.body.oldPassword) {
-          var userUpdate = {
-            name: req.body.name,
-            password: req.body.password 
-          };
-          AuthDataModel.update({name: userUpdate.name}, userUpdate, { upsert: true })
-            .then(resp => {
-              res.status(200).json(resp);
-            })
-            .catch(err => {
-              res.status(400).json(err);
-            });
-        } else {
-          res.status(400).json({err: 'Wrong Password !'});
-        }
+    authService.resetPassword({ name: req.body.name, password: req.body.password, oldPassword: req.body.oldPassword })
+      .then(resp => {
+        res.status(200).json(resp);
       })
       .catch(err => {
-        res.status(400).json({err: 'User Not Found !'});
+        res.status(400).json({ err });
       });
   });
 

@@ -9,6 +9,7 @@ import { ConfigurationRoutingModule } from './configuration-routing.module';
 import { ConfigurationComponent } from './containers/confuguration.component';
 
 import { PipesModule } from '@share/pipes/pipes.module';
+import { DirectivesModule } from '@share/directives/directives.module';
 
 import { ConfigurationService } from './services/configuration.service';
 
@@ -18,7 +19,8 @@ import { ConfigurationService } from './services/configuration.service';
     ReactiveFormsModule,
     CustomAngularMaterialModule,
     ConfigurationRoutingModule,
-    PipesModule
+    PipesModule,
+    DirectivesModule
   ],
   declarations: [
     ConfigurationComponent
