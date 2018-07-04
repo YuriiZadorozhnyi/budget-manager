@@ -7,7 +7,6 @@ import { CustomAngularMaterialModule } from '@core/angular-material/angular-mate
 import { AddTransactionRoutingModule } from './add-transaction-routing.module';
 
 import { AddTransactionComponent } from './containers/add-transaction.component';
-import { AddTransactionService } from './services/add-transaction.service';
 
 import { PipesModule } from '@share/pipes/pipes.module';
 import { DirectivesModule } from '@share/directives/directives.module';
@@ -23,9 +22,6 @@ import { DirectivesModule } from '@share/directives/directives.module';
   ],
   declarations: [
     AddTransactionComponent
-  ],
-  providers: [
-    AddTransactionService
   ]
 })
 export class AddTransactionModule { }
