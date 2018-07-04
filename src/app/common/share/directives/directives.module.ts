@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { TextInputDirective } from './textInput.directive';
+import { ForbiddenInputDirective } from './forbiddenInput.directive';
 
 @NgModule({
   imports: [
     CommonModule
   ],
   declarations: [
-    TextInputDirective
+    ForbiddenInputDirective
   ],
   exports: [
-    TextInputDirective
+    ForbiddenInputDirective
   ]
 })
 export class DirectivesModule { }

@@ -20,7 +20,7 @@
       </mat-form-field>
 
       <mat-form-field>
-        <input matInput placeholder="Сost" formControlName="price" appControlInput="digits">
+        <input matInput placeholder="Сost" formControlName="price" appForbiddenInput="[^0-9]">
       </mat-form-field>
 
       <button mat-raised-button color="accent" (click)="addTransaction()">Add Transaction</button>
