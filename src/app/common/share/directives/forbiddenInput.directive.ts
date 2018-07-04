@@ -1,23 +1,15 @@
 import { Directive, ElementRef, HostListener, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appControlInput]'
+  selector: '[appForbiddenInput]'
 })
-export class TextInputDirective {
+export class ForbiddenInputDirective {
   regEx: RegExp;
 
   constructor(private elementRef: ElementRef) {  }
 
-  @Input() set appControlInput(inputType: string) {
-    switch (inputType) {
-      case 'text': this.regEx = /[^a-z]/g;
-      break;
-      case 'digits': this.regEx = /[^0-9]/g;
-      break;
-      case 'alphaNumeric': this.regEx = /\W/g;
-      break;
-      default: this.regEx = /\W/g;
-    }
+  @Input() set appForbiddenInput(forbiddenInputPattern: RegExp) {
+    this.regEx = new RegExp(forbiddenInputPattern, 'g');
   }
 
   @HostListener('keyup', ['$event'])
