@@ -3,8 +3,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { TransactionModel } from '@core/models/transaction.model';
-
-import { AddTransactionService } from './../services/add-transaction.service';
+import { TransactionsService } from '@core/services/transactions.service';
 
 @Component({
   selector: 'app-add-transaction',
@@ -19,7 +18,7 @@ export class AddTransactionComponent implements OnInit {
   incomeCategories = ['Salary', 'Gift', 'Social Help', 'Budget Correction', 'Other Income'];
 
   constructor(private fb: FormBuilder,
-              private addTransactionService: AddTransactionService,
+              private transactionsService: TransactionsService,
               private router: Router) { }
 
   ngOnInit() {
@@ -42,7 +41,7 @@ export class AddTransactionComponent implements OnInit {
       id: (new Date()).getTime(),
       author: userName
     };
-    this.addTransactionService.addTransaction(data).subscribe((res: any) => {
+    this.transactionsService.addTransaction(data).subscribe((res: any) => {
       if (res || res.saved) {
         this.router.navigate(['/main/transactions-list']);
       }

@@ -7,6 +7,7 @@ import { MatSnackBar } from '@angular/material';
 import { TransactionCategoryModel } from '@share/models/transaction-category.model';
 
 import { ConfigurationService } from './../services/configuration.service';
+import { TransactionsService } from '@core/services/transactions.service';
 
 @Component({
   selector: 'app-configuration',
@@ -22,6 +23,7 @@ export class ConfigurationComponent implements OnInit {
 
   constructor(private fb: FormBuilder,
               private configurationService: ConfigurationService,
+              private transactionsService: TransactionsService,
               public snackBar: MatSnackBar,
               private router: Router) { }
 
@@ -32,7 +34,7 @@ export class ConfigurationComponent implements OnInit {
   }
 
   getCategories() {
-    this.configurationService.getTransactionCathegory().subscribe((res: TransactionCategoryModel[]) => {
+    this.transactionsService.getTransactionCathegory().subscribe((res: TransactionCategoryModel[]) => {
       this.incomeCategories = res.filter(el => el.type === 'income');
       this.expenseCategories = res.filter(el => el.type === 'expense');
     });
@@ -56,7 +58,7 @@ export class ConfigurationComponent implements OnInit {
 
   createNewCategory(data) {
     const cathegory = { ...data, id: +new Date(), author: localStorage.getItem('user') };
-    this.configurationService.addTransactionCathegory(cathegory)
+    this.transactionsService.addTransactionCathegory(cathegory)
       .subscribe((res: TransactionCategoryModel) => {
         if (res.type === 'income') {
           this.incomeCategories.push(res);
@@ -67,7 +69,7 @@ export class ConfigurationComponent implements OnInit {
   }
 
   removeTransactionCathegory(id) {
-    this.configurationService.removeTransactionCathegory(id)
+    this.transactionsService.removeTransactionCathegory(id)
       .subscribe((res: TransactionCategoryModel) => {
         if (res.type === 'income') {
           this.incomeCategories = this.incomeCategories.filter(el => el.id !== res.id);

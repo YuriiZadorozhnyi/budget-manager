@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { TransactionModel } from '@core/models/transaction.model';
-import { TransactionsService } from '../services/transactions.service';
+import { TransactionsService } from '@core/services/transactions.service';
 
 @Component({
   selector: 'app-transactions-list',
@@ -14,18 +14,18 @@ export class TransactionsListComponent implements OnInit {
   constructor(private transactionsService: TransactionsService) { }
 
   ngOnInit() {
-    this.getExpensesList();
+    this.getTransactionsList();
   }
 
-  getExpensesList() {
+  getTransactionsList() {
     this.transactionsService.getTransactions().subscribe((res: TransactionModel[]) => {
       this.tasksList = res;
     });
   }
 
   removeTask(id) {
-    this.transactionsService.removeExpense(id).subscribe(() => {
-      this.getExpensesList();
+    this.transactionsService.removeTransaction(id).subscribe(() => {
+      this.getTransactionsList();
     });
   }
 

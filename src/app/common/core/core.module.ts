@@ -3,16 +3,19 @@ import { NgModule, Optional, SkipSelf } from '@angular/core';
 
 import { CustomAngularMaterialModule } from './angular-material/angular-material.module';
 import { InterceptorsModule } from './interceptors/interceptors.module';
+import { ServicesModule } from './services/services.module';
 
 @NgModule({
   imports: [
     CommonModule,
     CustomAngularMaterialModule,
-    InterceptorsModule
+    InterceptorsModule,
+    ServicesModule
   ],
   exports: [
     CustomAngularMaterialModule,
-    InterceptorsModule
+    InterceptorsModule,
+    ServicesModule
   ]
 })
 export class CoreModule {
