@@ -69,7 +69,6 @@ export class AddTransactionComponent implements OnInit {
 
   addTransaction() {
     const userName = localStorage.getItem('user');
-    console.log(this.newTransactionForm.value);
     const data = {
       ...this.newTransactionForm.value,
       id: (new Date()).getTime(),
