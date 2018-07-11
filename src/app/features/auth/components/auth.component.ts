@@ -67,7 +67,7 @@ export class AuthComponent implements OnInit {
           this.snackBar.open('Wrong User Name Or Password, Please Enter Valid Data.', ' ', {
             duration: 3000,
             verticalPosition: 'top',
-            extraClasses: ['custom-snack-bar']
+            panelClass: ['custom-snack-bar']
           });
         }
       });
@@ -83,7 +83,7 @@ export class AuthComponent implements OnInit {
           this.snackBar.open('Wrong User Name Or Password, Please Enter Valid Data.', ' ', {
             duration: 3000,
             verticalPosition: 'top',
-            extraClasses: ['custom-snack-bar']
+            panelClass: ['custom-snack-bar']
           });
         }
       });

@@ -94,14 +94,14 @@ export class ConfigurationComponent implements OnInit {
         this.snackBar.open('New Password and Confirm New Password MUST BE IDENTICAL!', ' ', {
           duration: 3000,
           verticalPosition: 'top',
-          extraClasses: ['custom-snack-bar']
+          panelClass: ['custom-snack-bar']
         });
       }
     } else {
       this.snackBar.open('All fields are required, min password length is 8 symbols!', ' ', {
         duration: 3000,
         verticalPosition: 'top',
-        extraClasses: ['custom-snack-bar']
+        panelClass: ['custom-snack-bar']
       });
     }
   }
@@ -122,7 +122,7 @@ export class ConfigurationComponent implements OnInit {
       this.snackBar.open('All fields are required, min password length is 8 symbols!', ' ', {
         duration: 3000,
         verticalPosition: 'top',
-        extraClasses: ['custom-snack-bar']
+        panelClass: ['custom-snack-bar']
       });
     }
   }
