@@ -12,9 +12,16 @@
       </mat-form-field>
 
       <mat-form-field>
+        <mat-select placeholder="Transaction Type" formControlName="type" (change)=changeTransactionCategory($event) >
+          <mat-option value="income">Income</mat-option>
+          <mat-option value="expense">Expense</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
         <mat-select placeholder="Transaction Category" formControlName="category">
-          <mat-option *ngFor="let transactionCategory of expenseCategories" [value]="transactionCategory">
-            {{ transactionCategory }}
+          <mat-option *ngFor="let transactionCategory of currentTransactionCathegories" [value]="transactionCategory.name">
+            {{ transactionCategory.name }}
           </mat-option>
         </mat-select>
       </mat-form-field>

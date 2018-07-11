@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
 import { TransactionModel } from '@core/models/transaction.model';
+import { TransactionCategoryModel } from '@share/models/transaction-category.model';
+
 import { TransactionsService } from '@core/services/transactions.service';
 
 @Component({
@@ -13,9 +15,10 @@ import { TransactionsService } from '@core/services/transactions.service';
 export class AddTransactionComponent implements OnInit {
   newTransactionForm: FormGroup;
   tasksList: TransactionModel[] = [];
-  transactionsType = ['expense', 'income'];
-  expenseCategories = ['Food', 'Utilities', 'Jewelry', 'Transport', 'Communication'];
-  incomeCategories = ['Salary', 'Gift', 'Social Help', 'Budget Correction', 'Other Income'];
+  currentTransactionType: string;
+  currentTransactionCathegories: TransactionCategoryModel[];
+  expenseCategories: TransactionCategoryModel[];
+  incomeCategories: TransactionCategoryModel[];
 
   constructor(private fb: FormBuilder,
               private transactionsService: TransactionsService,
@@ -23,19 +26,51 @@ export class AddTransactionComponent implements OnInit {
 
   ngOnInit() {
     this.initForm();
+    this.getCategories();
   }
 
   initForm() {
     this.newTransactionForm = this.fb.group({
-      title: '',
-      description: '',
-      category: '',
-      price: ''
+      title: ['',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(25)
+        ]
+      ],
+      description: ['',
+        [
+          Validators.required,
+          Validators.minLength(3),
+          Validators.maxLength(50)
+        ]
+      ],
+      type: ['', [Validators.required]],
+      category: ['', [Validators.required]],
+      price: ['',
+        [
+          Validators.required,
+          Validators.min(1),
+          Validators.max(100000)
+        ]
+      ],
     });
+  }
+
+  getCategories() {
+    this.transactionsService.getTransactionCathegory().subscribe((res: TransactionCategoryModel[]) => {
+      this.incomeCategories = res.filter(el => el.type === 'income');
+      this.expenseCategories = res.filter(el => el.type === 'expense');
+    });
+  }
+
+  changeTransactionCategory(event) {
+    this.currentTransactionCathegories = event.value === 'income' ? this.incomeCategories : this.expenseCategories;
   }
 
   addTransaction() {
     const userName = localStorage.getItem('user');
+    console.log(this.newTransactionForm.value);
     const data = {
       ...this.newTransactionForm.value,
       id: (new Date()).getTime(),
