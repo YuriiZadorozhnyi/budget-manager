@@ -7,8 +7,8 @@ module.exports = app => {
    * Add transaction
    */
   app.put('/api/transaction', (req, res) => {
-    const { body: { id, author, title, description, category, price } } = req;
-    const data = new TransactionDataModel({ id, author, title, description, category, price });
+    const { body: { id, author, title, description, type, category, price } } = req;
+    const data = new TransactionDataModel({ id, author, title, description, type, category, price });
     data.save()
       .then(saved => res.status(200).json({saved: true}))
       .catch(err => res.status(400).json({error: 'Something went wrong !!!'}));

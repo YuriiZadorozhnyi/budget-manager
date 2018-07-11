@@ -37,7 +37,7 @@ export class AuthComponent implements OnInit {
         [
           Validators.required,
           Validators.minLength(this.minNameLength),
-          Validators.maxLength(this.maxNameLength),
+          Validators.maxLength(this.maxNameLength)
         ]
       ],
       password: ['',
