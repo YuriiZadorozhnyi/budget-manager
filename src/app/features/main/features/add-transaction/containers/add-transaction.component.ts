@@ -15,7 +15,6 @@ import { TransactionsService } from '@core/services/transactions.service';
 export class AddTransactionComponent implements OnInit {
   newTransactionForm: FormGroup;
   tasksList: TransactionModel[] = [];
-  currentTransactionType: string;
   currentTransactionCathegories: TransactionCategoryModel[];
   expenseCategories: TransactionCategoryModel[];
   incomeCategories: TransactionCategoryModel[];
