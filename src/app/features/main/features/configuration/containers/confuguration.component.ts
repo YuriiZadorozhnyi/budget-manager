@@ -34,7 +34,7 @@ export class ConfigurationComponent implements OnInit {
   }
 
   getCategories() {
-    this.transactionsService.getTransactionCathegory().subscribe((res: TransactionCategoryModel[]) => {
+    this.transactionsService.getTransactionCategory().subscribe((res: TransactionCategoryModel[]) => {
       this.incomeCategories = res.filter(el => el.type === 'income');
       this.expenseCategories = res.filter(el => el.type === 'expense');
     });
@@ -57,8 +57,8 @@ export class ConfigurationComponent implements OnInit {
   }
 
   createNewCategory(data) {
-    const cathegory = { ...data, id: +new Date(), author: localStorage.getItem('user') };
-    this.transactionsService.addTransactionCathegory(cathegory)
+    const Category = { ...data, id: +new Date(), author: localStorage.getItem('user') };
+    this.transactionsService.addTransactionCategory(Category)
       .subscribe((res: TransactionCategoryModel) => {
         if (res.type === 'income') {
           this.incomeCategories.push(res);
@@ -68,8 +68,8 @@ export class ConfigurationComponent implements OnInit {
       });
   }
 
-  removeTransactionCathegory(id) {
-    this.transactionsService.removeTransactionCathegory(id)
+  removeTransactionCategory(id) {
+    this.transactionsService.removeTransactionCategory(id)
       .subscribe((res: TransactionCategoryModel) => {
         if (res.type === 'income') {
           this.incomeCategories = this.incomeCategories.filter(el => el.id !== res.id);

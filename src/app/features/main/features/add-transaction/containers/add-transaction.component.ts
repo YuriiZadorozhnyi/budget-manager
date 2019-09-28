@@ -15,7 +15,7 @@ import { TransactionsService } from '@core/services/transactions.service';
 export class AddTransactionComponent implements OnInit {
   newTransactionForm: FormGroup;
   tasksList: TransactionModel[] = [];
-  currentTransactionCathegories: TransactionCategoryModel[];
+  currentTransactionCategories: TransactionCategoryModel[];
   expenseCategories: TransactionCategoryModel[];
   incomeCategories: TransactionCategoryModel[];
 
@@ -26,6 +26,9 @@ export class AddTransactionComponent implements OnInit {
   ngOnInit() {
     this.initForm();
     this.getCategories();
+    this.newTransactionForm.get('type').valueChanges.subscribe(type => {
+      this.changeTransactionCategory(type);
+    });
   }
 
   initForm() {
@@ -57,14 +60,14 @@ export class AddTransactionComponent implements OnInit {
   }
 
   getCategories() {
-    this.transactionsService.getTransactionCathegory().subscribe((res: TransactionCategoryModel[]) => {
+    this.transactionsService.getTransactionCategory().subscribe((res: TransactionCategoryModel[]) => {
       this.incomeCategories = res.filter(el => el.type === 'income');
       this.expenseCategories = res.filter(el => el.type === 'expense');
     });
   }
 
   changeTransactionCategory(event) {
-    this.currentTransactionCathegories = event.value === 'income' ? this.incomeCategories : this.expenseCategories;
+    this.currentTransactionCategories = event.value === 'income' ? this.incomeCategories : this.expenseCategories;
   }
 
   addTransaction() {

@@ -7,15 +7,15 @@ export class ConfigurationService {
 
 constructor(private http: HttpClient) { }
 
-  getTransactionCathegory(data = {}) {
+  getTransactionCategory(data = {}) {
     return this.http.post('transaction-category', data);
   }
 
-  addTransactionCathegory(data) {
+  addTransactionCategory(data) {
     return this.http.put('transaction-category', data);
   }
 
-  removeTransactionCathegory(id) {
+  removeTransactionCategory(id) {
     return this.http.delete(`transaction-category/${id}`);
   }
 
